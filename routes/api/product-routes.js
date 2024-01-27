@@ -1,21 +1,21 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
+// TODO: The `/api/products` endpoint
 
 // get all products
 router.get('/', async (req, res) => {
-  // find all products
+  // TODO: find all products
   // be sure to include its associated Category and Tag data
 });
 
 // get one product
 router.get('/:id', async (req, res) => {
-  // find a single product by its `id`
+  // TODO: find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
 
-// create new product
+// TODO: create new product
 router.post('/', async (req, res) => {
   /* req.body should look like this...
     {
@@ -63,7 +63,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
+  // TODO: delete one product by its `id` value
 });
 
 module.exports = router;
