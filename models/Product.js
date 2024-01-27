@@ -10,6 +10,10 @@ class Product extends Model {}
 Product.init(
   {
     // TODO: define columns
+    id: {},
+    price: {},
+    stock: {},
+    category_id: {}
   },
   {
     sequelize,
