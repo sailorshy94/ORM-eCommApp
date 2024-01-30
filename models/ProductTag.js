@@ -6,7 +6,7 @@ class ProductTag extends Model {}
 
 ProductTag.init(
   {
-    // TODO: define columns
+    // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -15,12 +15,13 @@ ProductTag.init(
     },
     product_id: {
       type: DataTypes.INTEGER,
-      // TODO: foreign key references product(id)
-      // ProductTag.hasMany(Products, { foreignKey: 'product_id'});
+      // foreign key references product(id)
+      references: {model: "product", key: "id"}
     },
     tag_id: {
       type: DataTypes.INTEGER,
-      // TODO: foreign key references tag(id)
+      // foreign key references tag(id)
+      references: {model: "tag", key: "id"}
     }
   },
   {
