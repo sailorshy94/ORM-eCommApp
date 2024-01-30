@@ -9,7 +9,7 @@ class Product extends Model {}
 // set up fields and rules for Product model
 Product.init(
   {
-    // TODO: define columns
+    // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -21,20 +21,26 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
       allowNull: false,
-      // TODO: validate that integer value is decimal
+      // validate that integer value is decimal
+      validate: {
+        isDecimal: true
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // TODO: default value = 10
-
-      // TODO: validate that it is a numeric value
+      defaultValue: 10,
+      // validate that it is a numeric value
+      validate: {
+        isInt: true
+      }
     },
     category_id: {
       type: DataTypes.INTEGER,
-      // TODO: foreign key referenced category(id)
+      // foreign key references category(id)
+      references: {model: "category", key: "id"}
     }
   },
   {
