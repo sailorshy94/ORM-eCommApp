@@ -14,7 +14,7 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     product_name: {
       type: DataTypes.STRING,
@@ -25,7 +25,7 @@ Product.init(
       allowNull: false,
       // validate that integer value is decimal
       validate: {
-        isDecimal: true
+        isDecimal: true,
       }
     },
     stock: {
@@ -34,13 +34,16 @@ Product.init(
       defaultValue: 10,
       // validate that it is a numeric value
       validate: {
-        isInt: true
+        isInt: true,
       }
     },
     category_id: {
       type: DataTypes.INTEGER,
       // foreign key references category(id)
-      references: {model: "category", key: "id"}
+      references: {
+        model: "category", 
+        key: "id",
+      },
     }
   },
   {

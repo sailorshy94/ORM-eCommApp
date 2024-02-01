@@ -15,11 +15,13 @@ Category.hasMany(Product, {
 });
 // Products belongsToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
-
+  through: 'ProductTag',
+  foreignKey: 'product_id'
 });
 // Tags belongsToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
-
+  through: 'ProductTag',
+  foreignKey: 'tag_id',
 });
 
 // products and tags belongToMany will be many to many relationship - ck zoom recording for A's example

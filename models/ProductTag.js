@@ -11,24 +11,29 @@ ProductTag.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     product_id: {
       type: DataTypes.INTEGER,
       // foreign key references product(id)
-      references: {model: "product", key: "id"}
+      references: {
+        model: "product", 
+        key: "id",
+      },
     },
     tag_id: {
       type: DataTypes.INTEGER,
       // foreign key references tag(id)
-      references: {model: "tag", key: "id"}
-    }
+      references: {
+        model: "tag", 
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     modelName: 'product_tag',
-  }
-);
+  });
 
 module.exports = ProductTag;
