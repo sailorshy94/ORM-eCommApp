@@ -1,4 +1,4 @@
-const { Model, DataTypes, INTEGER } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
@@ -16,11 +16,12 @@ Category.init({
       type: DataTypes.STRING,
       allowNull: false
     }, 
+  },
+  {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
-    underscored: true,
     modelName: 'category',
-  });
+  }
+  );
 
 module.exports = Category;
