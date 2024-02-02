@@ -41,10 +41,10 @@ Product.init(
       type: DataTypes.INTEGER,
       // foreign key references category(id)
       references: {
-        model: "category", 
+        model: "categories", 
         key: "id",
       },
-    }
+    },
   },
   {
     sequelize,
