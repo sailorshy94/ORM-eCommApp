@@ -16,22 +16,24 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // TODO: find one category by its `id` value
+  // find one category by its `id` value
   // be sure to include its associated Products
-  const categData = await Category.findByPk(req.params.id);
-  // not sure about the include part - where should it go?
+  const categData = await Category.findByPk(req.params.id,
+    {
+      include: [{
+        model: Product,
+        attributes: ['product_name']
+      }]
+    });
   return res.json(categData);
-  // ({
-  // include: [{
-  //   model: Product,
-  //   attributes: ['product_name']
-  // }]
 });
 
 
 router.post('/', async (req, res) => {
-  // TODO: create a new category
-  const categData = await ({});
+  // create a new category
+  const categData = await Category.bulkCreate(req.body);
+
+  return res.json(categData);
 });
 
 router.put('/:id', async (req, res) => {
