@@ -22,15 +22,23 @@ router.get('/', async (req, res) => {
 
 // get one product
 router.get('/:id', async (req, res) => {
-  // TODO: find a single product by its `id`
+  // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  const prodData = await ({
-
+  const product = await Product.findByPk(req.params.id,
+    {
+      include: [{
+        model: Category,
+        attributes: ['category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name']
+      }]
   });
-  return res.json(prodData);
+  return res.json(product);
 });
 
-// TODO: create new product
+// create new product
 router.post('/', async (req, res) => {
   // const prodData = await ({});
   // return res.json(prodData);
@@ -80,9 +88,13 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // TODO: delete one product by its `id` value
-  const prodData = await ({});
-  return res.json(prodData);
+  // delete one product by its `id` value
+  const product = await Product.destroy({
+    where: {
+      id: req.params.id,
+    }
+  });
+  return res.json(product);
 });
 
 module.exports = router;
