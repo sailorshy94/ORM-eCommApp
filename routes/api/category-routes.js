@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new category
-  const categData = await Category.bulkCreate(req.body);
+  const categData = await Category.create(req.body);
 
   return res.json(categData);
 });
