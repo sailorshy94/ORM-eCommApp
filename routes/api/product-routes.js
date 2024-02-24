@@ -15,7 +15,11 @@ router.get('/', async (req, res) => {
     {
       model: Tag,
       attributes: ['tag_name']
-    }]
+    },
+  {
+    model: ProductTag,
+    attributes: ['id']
+  }]
   });
   return res.json(prodData);
 });
@@ -33,7 +37,11 @@ router.get('/:id', async (req, res) => {
       {
         model: Tag,
         attributes: ['tag_name']
-      }]
+      },
+    {
+      model: ProductTag,
+      attributes: ['id']
+    }]
   });
   return res.json(product);
 });
