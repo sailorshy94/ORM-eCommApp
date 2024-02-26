@@ -34,10 +34,11 @@ router.get('/:id', async (req, res) => {
         model: Category,
         attributes: ['category_name']
       },
-      {
-        model: Tag,
-        attributes: ['tag_name']
-      },
+      // does it also need tag or just prodtag???
+      // {
+      //   model: Tag,
+      //   attributes: ['tag_name']
+      // },
     {
       model: ProductTag,
       attributes: ['id']
