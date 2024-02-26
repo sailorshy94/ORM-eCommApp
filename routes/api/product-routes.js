@@ -12,13 +12,13 @@ router.get('/', async (req, res) => {
       model: Category,
       attributes: ['category_name']
     },
-    {
-      model: Tag,
-      attributes: ['tag_name']
-    },
+    // {
+    //   model: Tag,
+    //   attributes: ['tag_name']
+    // },
   {
     model: ProductTag,
-    attributes: ['id']
+    attributes: ['product_name','tag_name']
   }]
   });
   return res.json(prodData);
@@ -39,18 +39,16 @@ router.get('/:id', async (req, res) => {
       //   model: Tag,
       //   attributes: ['tag_name']
       // },
-    {
-      model: ProductTag,
-      attributes: ['id']
-    }]
+      {
+        model: ProductTag,
+        attributes: ['product_name','tag_name']
+      }]
   });
   return res.json(product);
 });
 
 // create new product
 router.post('/', async (req, res) => {
-  // const prodData = await ({});
-  // return res.json(prodData);
   /* req.body should look like this...
     {
       product_name: "Basketball",

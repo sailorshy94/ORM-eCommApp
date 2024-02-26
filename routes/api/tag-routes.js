@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   // TODO: find all tags
   // be sure to include its associated Product data
   const tagData = await Tag.findAll({
-    
+
   });
   return
 });
@@ -43,7 +43,7 @@ router.delete('/:id', async (req, res) => {
   // TODO: delete on tag by its `id` value
   const Tag = await Tag.destroy({
     where: {
-
+      id: req.params.id,
     }
   });
   return
