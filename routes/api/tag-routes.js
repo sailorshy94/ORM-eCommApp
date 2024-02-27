@@ -29,13 +29,13 @@ router.get('/:id', async (req, res) => {
     //   attributes: ['product_name']
     // }]
   });
-  return
+  return res.json();
 });
 
 router.post('/', async (req, res) => {
   // TODO: create a new tag
   const tag = await Tag.create(req.body);
-  // return
+  // return res.json();
 });
 
 router.put('/:id', async (req, res) => {
@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
 
     }
   });
-  return
+  return res.json();
 });
 
 router.delete('/:id', async (req, res) => {
@@ -57,7 +57,7 @@ router.delete('/:id', async (req, res) => {
       id: req.params.id,
     }
   });
-  return
+  return res.json();
 });
 
 module.exports = router;
