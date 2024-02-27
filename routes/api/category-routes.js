@@ -3,6 +3,8 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
+// TODO: add try...catch to each crud
+
 router.get('/', async (req, res) => {
   // find all categories
   // be sure to include its associated Products
@@ -25,7 +27,7 @@ router.get('/:id', async (req, res) => {
         attributes: ['product_name']
       }]
     });
-  return res.json(categData);
+  return res.json(category);
 });
 
 

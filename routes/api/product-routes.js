@@ -3,6 +3,8 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
+// TODO: add try...catch to each crud
+
 // get all products
 router.get('/', async (req, res) => {
   // find all products
