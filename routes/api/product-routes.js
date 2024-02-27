@@ -12,14 +12,11 @@ router.get('/', async (req, res) => {
       model: Category,
       attributes: ['category_name']
     },
-    // {
-    //   model: Tag,
-    //   attributes: ['tag_name']
-    // },
-  {
-    model: ProductTag,
-    attributes: ['product_name','tag_name']
-  }]
+    {
+      model: Tag,
+      through: ProductTag,
+      attributes: ['tag_name']
+    }]
   });
   return res.json(prodData);
 });
@@ -34,14 +31,10 @@ router.get('/:id', async (req, res) => {
         model: Category,
         attributes: ['category_name']
       },
-      // does it also need tag or just prodtag???
-      // {
-      //   model: Tag,
-      //   attributes: ['tag_name']
-      // },
       {
-        model: ProductTag,
-        attributes: ['product_name','tag_name']
+        model: Tag,
+        through: ProductTag,
+        attributes: ['tag_name']
       }]
   });
   return res.json(product);
