@@ -9,5 +9,5 @@ This assignment was to modify starter code to create the back-end functionality 
 ![httpie Screenshot](./assets/ORM13screenshot1.png)   
 
 ## Links
-[GitHub Repo](https://github.com/sailorshy94/ORM-eCommApp)
+[GitHub Repo](https://github.com/sailorshy94/ORM-eCommApp)  
 [Walkthrough Video](https://)
