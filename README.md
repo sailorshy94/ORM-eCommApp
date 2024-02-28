@@ -10,4 +10,4 @@ This assignment was to modify starter code to create the back-end functionality 
 
 ## Links
 [GitHub Repo](https://github.com/sailorshy94/ORM-eCommApp)  
-[Walkthrough Video](https://)
+[Walkthrough Video](https://drive.google.com/file/d/1_qJnBD1A2ZszW9oZJhq3sMywR12Gds6A/view)
