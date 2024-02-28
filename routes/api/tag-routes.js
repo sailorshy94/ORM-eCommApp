@@ -15,10 +15,10 @@ router.get('/', async (req, res) => {
           attributes: ['product_name']
         }]
       });
-    res.status(200).json(tagData);
+    return res.status(200).json(tagData);
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
