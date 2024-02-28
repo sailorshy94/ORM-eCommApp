@@ -80,10 +80,9 @@ router.post('/', async (req, res) => {
 // update product
 router.put('/:id', async (req, res) => {
   try {
-    const product = await Product.findByPk(req.params.id,
-      {
-        include: [Tag],
-      });
+    const product = await Product.findByPk(req.params.id, { 
+      include: [Tag],
+    });
     // update product data
     product.update(req.body);
     // if there's product tags, we need to create pairings by using the setTags method
@@ -92,7 +91,7 @@ router.put('/:id', async (req, res) => {
     }
     await product.save();
     await product.reload();
-    return res.status(200).json(product);
+    return  res.status(200).json(product);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);

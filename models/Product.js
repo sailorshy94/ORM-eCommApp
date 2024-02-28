@@ -44,15 +44,7 @@ Product.init(
         model: "categories",
         key: "id",
       },
-    },
-    tag_id: {
-      type: DataTypes.INTEGER,
-      // foreign key references tag(id)
-      references: {
-        model: "tags",
-        key: "id",
-      },
-    },
+    }
   },
   {
     sequelize,
