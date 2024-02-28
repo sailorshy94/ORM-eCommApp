@@ -9,14 +9,16 @@ router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll(
       {
-        model: Product,
-        through: ProductTag,
-        attributes: ['product_name']
-      })
-    return res.json(200).json(tagData);
+        include: [{
+          model: Product,
+          through: ProductTag,
+          attributes: ['product_name']
+        }]
+      });
+    res.status(200).json(tagData);
   } catch (err) {
     console.log(err);
-    return res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -27,11 +29,13 @@ router.get('/:id', async (req, res) => {
   try {
     const tag = await Tag.findByPk(req.params.id,
       {
-        model: Product,
-        through: ProductTag,
-        attributes: ['product_name']
+        include: [{
+          model: Product,
+          through: ProductTag,
+          attributes: ['product_name']
+        }]
       });
-    return res.json(200).json(tagData);
+    return res.status(200).json(tag);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -42,7 +46,7 @@ router.post('/', async (req, res) => {
   // create a new tag
   try {
     const tag = await Tag.create(req.body);
-    return res.json(200).json(tag);
+    return res.status(200).json(tag);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -61,7 +65,7 @@ router.put('/:id', async (req, res) => {
           id: req.params.id,
         }
       });
-    return res.json(200).json(tag);
+    return res.status(200).json(tag);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -73,11 +77,11 @@ router.delete('/:id', async (req, res) => {
   try {
     const tag = await Tag.destroy(
       {
-      where: {
-        id: req.params.id,
-      }
-    });
-    return res.json(200).json(tag);
+        where: {
+          id: req.params.id,
+        }
+      });
+    return res.status(200).json(tag);
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
